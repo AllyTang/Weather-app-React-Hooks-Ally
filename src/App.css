@@ -6,3 +6,8 @@
   justify-content: center;
   margin: 15px 0;
 }
+.city {
+  font-size: 36px;
+  font-weight: bold;
+  color: #555;
+}

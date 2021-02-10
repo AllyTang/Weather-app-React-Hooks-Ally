@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, FormControl } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 const CitySelector = ({ onSelectButtonClick }) => {
-  const [city, setCity] = useState(null);
-
+  const [city, setCity] = useState('sydney');
+  useEffect(() => {
+    return onSelectButtonClick('sydney');
+  }, []);
   return (
     <>
       <Row>

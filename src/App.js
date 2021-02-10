@@ -8,22 +8,21 @@ import WeatherList from './components/WeatherList';
 
 function App() {
   const { data, error, inProgress, setUrl } = useFetch();
-
   const getContent = () => {
     if (error) return <h2>Error when fetching: {error}</h2>;
     if (!data && inProgress) return <h2>Loading...</h2>;
     if (!data) return null;
-    return <WeatherList weathers={data.list} />;
+    return <WeatherList weathers={data.list} city={data.city.name} />;
   };
 
   return (
     <Container className='App'>
       <CitySelector
-        onSelectButtonClick={(city) =>
+        onSelectButtonClick={(city) => {
           setUrl(
             `${baseUrl}/data/2.5/forecast/daily?q=${city}&cnt=7&appId=${apiKey}&units=metric`
-          )
-        }
+          );
+        }}
       />
       {getContent()}
     </Container>
